@@ -3,13 +3,15 @@ import { CgSearch } from "react-icons/cg"
 import api from "../../services/api";
 import { useEffect, useState } from "react";
 
-export default function Buscador(){
+interface Props{
+  busca: string,
+  setBusca: React.Dispatch<React.SetStateAction<string>>;
+}
 
-    const [busca, setBusca] = useState();
-
+export default function Buscador({busca, setBusca}:Props){
     useEffect(() => {
       api
-        .get("/city_name=Campinas,SP")
+        .get("/city_name")
         .then((response) => setBusca(response.data))
         .catch((err) => {
           console.error("ops! ocorreu um erro" + err);
@@ -20,12 +22,15 @@ export default function Buscador(){
         <Container>
             <input
             type="text"
-            placeholder="Procure sua cidade" 
+            placeholder="Procure sua cidade"
+            value={busca}
+            onChange={(evento) => setBusca(evento.target.value)}
+            
             />
             <CgSearch
             size={20}
             color="#20dbd8"
-            />
+            />         
         </Container>
     )
 }

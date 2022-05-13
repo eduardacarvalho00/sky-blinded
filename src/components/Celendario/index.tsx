@@ -1,19 +1,32 @@
 import { Content, Section } from './styles';
 import { RiSunCloudyFill, RiSunFill } from 'react-icons/ri';
+import { ReactNode } from 'react';
 
-export default function Calendario(){
+interface RepositoryCalendario{
+    repository: {
+        city_name: string;
+        date: string;
+        weekday: string;
+        max: ReactNode;
+        min: ReactNode;
+        description: string;
+        condition:string;
+    }
+}
+
+export default function Calendario(props:  RepositoryCalendario ){
     return(
         <>
             <Content>
-                <h1>11/05/2022</h1>
-                <p>qui</p>
+                <h1>{props.repository.date}</h1>
+                <p>{props.repository.weekday}</p>
                 <RiSunCloudyFill
                 size={35}/>
-                <p>descrição</p>
+                <p>{props.repository.description}</p>
                 
                 <Section>
-                    <p>Min: 18°C</p>
-                    <p>Máx: 23°C</p>
+                    <p>{props.repository.min}</p>
+                    <p>{props.repository.max}</p>
                 </Section>
             </Content>
 
