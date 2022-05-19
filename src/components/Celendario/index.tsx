@@ -1,32 +1,31 @@
 import { Content, Section } from './styles';
 import { RiSunCloudyFill, RiSunFill } from 'react-icons/ri';
-import { ReactNode } from 'react';
+import { useEffect, useState } from 'react';
+import api from '../../services/api';
 
-interface RepositoryCalendario{
-    repository: {
-        city_name: string;
-        date: string;
-        weekday: string;
-        max: ReactNode;
-        min: ReactNode;
-        description: string;
-        condition:string;
-    }
-}
+export default function Calendario() {
+    const [date, setDate] = useState('');
 
-export default function Calendario(props:  RepositoryCalendario ){
-    return(
+    useEffect(() => {
+        api
+            .get("/date")
+            .then((response) => setDate(response.data))
+            .catch((err) => {
+                console.error("ops! ocorreu um erro" + err);
+            });
+    }, []);
+    return (
         <>
             <Content>
-                <h1>{props.repository.date}</h1>
-                <p>{props.repository.weekday}</p>
+                <h1></h1>
+                <p>qua</p>
                 <RiSunCloudyFill
-                size={35}/>
-                <p>{props.repository.description}</p>
-                
+                    size={35} />
+                <p>descrição</p>
+
                 <Section>
-                    <p>{props.repository.min}</p>
-                    <p>{props.repository.max}</p>
+                    <p>Min: 18°C</p>
+                    <p>Máx: 23°C</p>
                 </Section>
             </Content>
 
@@ -34,7 +33,7 @@ export default function Calendario(props:  RepositoryCalendario ){
                 <h1>12/05/2022</h1>
                 <p>qui</p>
                 <RiSunCloudyFill
-                size={35}/>
+                    size={35} />
                 <p>descrição</p>
                 <Section>
                     <p>Min: 18°C</p>
@@ -46,7 +45,7 @@ export default function Calendario(props:  RepositoryCalendario ){
                 <h1>13/05/2022</h1>
                 <p>qui</p>
                 <RiSunCloudyFill
-                size={35}/>
+                    size={35} />
                 <p>descrição</p>
                 <Section>
                     <p>Min: 18°C</p>
@@ -58,7 +57,7 @@ export default function Calendario(props:  RepositoryCalendario ){
                 <h1>14/05/2022</h1>
                 <p>qui</p>
                 <RiSunCloudyFill
-                size={35}/>
+                    size={35} />
                 <p>descrição</p>
                 <Section>
                     <p>Min: 18°C</p>
@@ -70,7 +69,7 @@ export default function Calendario(props:  RepositoryCalendario ){
                 <h1>15/05/2022</h1>
                 <p>qui</p>
                 <RiSunCloudyFill
-                size={35}/>
+                    size={35} />
                 <p>descrição</p>
                 <Section>
                     <p>Min: 18°C</p>
