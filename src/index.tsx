@@ -5,7 +5,6 @@ import "normalize.css";
 import Header from './components/Header';
 import Buscador from './components/Buscador';
 import Tabela from './components/Tabela';
-import api from './services/api';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

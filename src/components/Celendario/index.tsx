@@ -1,19 +1,8 @@
 import { Content, Section } from './styles';
 import { RiSunCloudyFill, RiSunFill } from 'react-icons/ri';
-import { useEffect, useState } from 'react';
-import api from '../../services/api';
+
 
 export default function Calendario() {
-    const [date, setDate] = useState('');
-
-    useEffect(() => {
-        api
-            .get("/date")
-            .then((response) => setDate(response.data))
-            .catch((err) => {
-                console.error("ops! ocorreu um erro" + err);
-            });
-    }, []);
     return (
         <>
             <Content>
