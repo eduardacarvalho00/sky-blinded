@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 50%;
   width: 500px;
   transform: translate(-50%, -50%);
@@ -16,6 +16,7 @@ export const Form = styled.form`
 
 
     input[type="text"]{
+      border: 0;
       width: 340px;
       height: 50px;
       outline: none;
@@ -23,8 +24,9 @@ export const Form = styled.form`
       padding: 0 25px;
 
     }
-    input[type="submit"]{
+    input[type="button"]{
       position: relative;
+      border: 0;
       width: 150px;
       height: 50px;
       border-radius: 0 25px 25px 0;

@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    padding-top: 13rem;
+`
 export const Content = styled.div`
+width: 15rem;
 text-align: center;
 border: solid;
 border-width: thin;

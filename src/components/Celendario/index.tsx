@@ -1,70 +1,41 @@
-import { Content, Section } from './styles';
+import { Container, Content, Section } from './styles';
 import { RiSunCloudyFill, RiSunFill } from 'react-icons/ri';
+import { useEffect, useState } from 'react';
+import api from '../../services/api';
+import axios from 'axios';
 
+export interface ForecastItem {
+    date: string;
+    weekday: string;
+    condition: string;
+    description: string;
+    min: number;
+    max: number;
+}
 
-export default function Calendario() {
+interface Props {
+    resultado: ForecastItem[]
+}
+
+export default function Calendario(props: Props) {
+    const { resultado } = props
+
     return (
-        <>
-            <Content>
-                <h1>11/05/2022</h1>
-                <p>qua</p>
-                <RiSunCloudyFill
-                    size={35} />
-                <p>descrição</p>
+        <Container>
+            {resultado.map((forecast, index) => (
+                <Content key={index}>
+                    <h1>{forecast.date}</h1>
+                    <p>{forecast.weekday}.</p>
 
-                <Section>
-                    <p>Min: 18°C</p>
-                    <p>Máx: 23°C</p>
-                </Section>
-            </Content>
+                    <p>{forecast.description}</p>
 
-            <Content>
-                <h1>12/05/2022</h1>
-                <p>qui</p>
-                <RiSunCloudyFill
-                    size={35} />
-                <p>descrição</p>
-                <Section>
-                    <p>Min: 18°C</p>
-                    <p>Máx: 23°C</p>
-                </Section>
-            </Content>
+                    <Section>
+                        <p>Min {forecast.min}ºC</p>
+                        <p>Máx {forecast.max}ºC</p>
+                    </Section>
+                </Content>
+            ))}
 
-            <Content>
-                <h1>13/05/2022</h1>
-                <p>qui</p>
-                <RiSunCloudyFill
-                    size={35} />
-                <p>descrição</p>
-                <Section>
-                    <p>Min: 18°C</p>
-                    <p>Máx: 23°C</p>
-                </Section>
-            </Content>
-
-            <Content>
-                <h1>14/05/2022</h1>
-                <p>qui</p>
-                <RiSunCloudyFill
-                    size={35} />
-                <p>descrição</p>
-                <Section>
-                    <p>Min: 18°C</p>
-                    <p>Máx: 23°C</p>
-                </Section>
-            </Content>
-
-            <Content>
-                <h1>15/05/2022</h1>
-                <p>qui</p>
-                <RiSunCloudyFill
-                    size={35} />
-                <p>descrição</p>
-                <Section>
-                    <p>Min: 18°C</p>
-                    <p>Máx: 23°C</p>
-                </Section>
-            </Content>
-        </>
+        </Container>
     )
 }

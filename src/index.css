@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;600&display=swap');
 body {
-    background-color: #fdfdfd8a;
+    background: linear-gradient(90deg, rgba(222,250,252,1) 0%, rgba(0,178,194,0.5340511204481793) 56%, rgba(222,250,252,1) 100%);
 }
 
 * {

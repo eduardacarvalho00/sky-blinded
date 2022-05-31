@@ -1,41 +1,30 @@
-import { useState } from 'react';
 import { Container, Form } from "./styles";
-import { CgSearch } from "react-icons/cg"
-import api from '../../services/api';
 
-export default function Buscador() {
-  const [cityName, setCityName] = useState('');
-  const [resultado, setResultado] = useState();
+interface Props {
+  cityName: string;
+  onChangeInput: (text: string) => void;
+  buscar: () => Promise<void>
+}
 
-  const buscar = async () => {
-    console.log("chegou")
-    const response = await api.get("", { params: { city_name: cityName } })
-    console.log("chegou2")
-    setResultado(response.data);
-  }
-
-  /*useEffect(() => {
-    api
-      .get("/city_name")
-      .then((response) => setCityName(response.data))
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);*/
-  console.log({ resultado });
+export default function Buscador(props: Props) {
+  const { cityName, onChangeInput, buscar } = props
   return (
     <Container>
-      <Form action="">
+      <Form
+        action=""
+      // onSubmit={() => buscar()}
+      >
         <input
           name="search"
           type="text"
           placeholder="Procure sua cidade"
           value={cityName}
-          onChange={event => setCityName(event.target.value)}
+          onChange={event => onChangeInput(event.target.value)}
         />
-        <button
+        <input
           name="Buscar"
-          type="submit"
+          // type="submit"
+          type="button"
           value="Buscar"
           onClick={() => buscar()}
         />
