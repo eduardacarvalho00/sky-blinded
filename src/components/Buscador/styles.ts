@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: absolute;
-  top: 30%;
-  left: 50%;
+  display: flex;
+  align-items: center;
   width: 500px;
-  transform: translate(-50%, -50%);
+  margin-top: 5rem;
+  @media (max-width: 375px) {
+   
+  }
 `
 export const Form = styled.form`
   input{
@@ -22,7 +24,9 @@ export const Form = styled.form`
       outline: none;
       border-radius: 23px 0 0 25px;
       padding: 0 25px;
-
+      @media (max-width: 375px) {
+        width: 200px;
+      }
     }
     input[type="button"]{
       position: relative;
@@ -33,7 +37,9 @@ export const Form = styled.form`
       outline: none;
       cursor: pointer;
       background:  #9ddfdf;
-      
+      @media (max-width: 375px) {
+        width: 100px;
+      }
     }
   
 ` 

@@ -1,4 +1,4 @@
-import { Container, Content, Section } from './styles';
+import { List, Content, Section, Container } from './styles';
 import { RiSunCloudyFill, RiSunFill } from 'react-icons/ri';
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
@@ -22,20 +22,21 @@ export default function Calendario(props: Props) {
 
     return (
         <Container>
-            {resultado.map((forecast, index) => (
-                <Content key={index}>
-                    <h1>{forecast.date}</h1>
-                    <p>{forecast.weekday}.</p>
+            <List>
+                {resultado.map((forecast, index) => (
+                    <Content key={index}>
+                        <h1>{forecast.date}</h1>
+                        <p>{forecast.weekday}.</p>
 
-                    <p>{forecast.description}</p>
+                        <p>{forecast.description}</p>
 
-                    <Section>
-                        <p>Min {forecast.min}ºC</p>
-                        <p>Máx {forecast.max}ºC</p>
-                    </Section>
-                </Content>
-            ))}
-
+                        <Section>
+                            <p>Min {forecast.min}ºC</p>
+                            <p>Máx {forecast.max}ºC</p>
+                        </Section>
+                    </Content>
+                ))}
+            </List>
         </Container>
     )
 }
