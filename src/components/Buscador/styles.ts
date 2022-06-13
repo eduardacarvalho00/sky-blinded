@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 500px;
   margin-top: 5rem;
   @media (max-width: 375px) {
-   
+    padding-left: 6rem;
   }
 `
 export const Form = styled.form`
