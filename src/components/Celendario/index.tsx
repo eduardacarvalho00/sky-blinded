@@ -1,8 +1,4 @@
 import { List, Content, Section, Container } from './styles';
-import { RiSunCloudyFill, RiSunFill } from 'react-icons/ri';
-import { useEffect, useState } from 'react';
-import api from '../../services/api';
-import axios from 'axios';
 
 export interface ForecastItem {
     date: string;

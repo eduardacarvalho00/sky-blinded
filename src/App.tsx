@@ -19,13 +19,15 @@ export default function App() {
   const buscar = async () => {
     const response = await api.get("", { params: { city_name: cityName } })
     console.log({ resultado: response.data });
-    setResultado(response.data.results.forecast.slice(0, 7));
+    setResultado(response.data.results.forecast.slice(0, 5));
   }
 
   return (
     <Container>
       <Header />
-      <Buscador cityName={cityName} onChangeInput={onChangeInput} buscar={buscar} />
+      <Buscador
+        cityName={cityName}
+        onChangeInput={onChangeInput} buscar={buscar} />
       <Calendario resultado={resultado} />
       <Footer />
     </Container>
